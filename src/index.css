@@ -8,47 +8,53 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%;
-    --foreground: 180 100% 90%;
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
 
-    --card: 240 10% 8%;
-    --card-foreground: 180 100% 90%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 240 10% 8%;
-    --popover-foreground: 180 100% 90%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 180 100% 50%;
-    --primary-foreground: 240 10% 3.9%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 222 47% 4%;
 
-    --secondary: 280 100% 70%;
-    --secondary-foreground: 240 10% 3.9%;
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 222 47% 4%;
 
-    --muted: 240 10% 15%;
-    --muted-foreground: 180 50% 60%;
+    --muted: 222 30% 18%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 310 100% 60%;
-    --accent-foreground: 240 10% 3.9%;
+    --accent: 271 76% 53%;
+    --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 180 100% 50%;
-    --input: 240 10% 15%;
-    --ring: 180 100% 50%;
+    --border: 217 33% 17%;
+    --input: 222 30% 18%;
+    --ring: 199 89% 48%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
     
-    --neon-cyan: 180 100% 50%;
-    --neon-blue: 210 100% 60%;
-    --neon-purple: 280 100% 70%;
-    --neon-pink: 310 100% 60%;
-    --space-dark: 240 10% 3.9%;
-    --space-darker: 240 10% 2%;
+    --neon-cyan: 189 94% 43%;
+    --neon-blue: 217 91% 60%;
+    --neon-purple: 271 76% 53%;
+    --neon-pink: 316 70% 58%;
+    --gold: 45 93% 58%;
+    --space-dark: 222 47% 4%;
+    --space-darker: 220 50% 2%;
     
-    --glow-cyan: 0 0 20px hsl(180 100% 50% / 0.5);
-    --glow-blue: 0 0 20px hsl(210 100% 60% / 0.5);
-    --glow-purple: 0 0 20px hsl(280 100% 70% / 0.5);
-    --glow-pink: 0 0 20px hsl(310 100% 60% / 0.5);
+    --gradient-primary: linear-gradient(135deg, hsl(199 89% 48%), hsl(217 91% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(271 76% 53%), hsl(316 70% 58%));
+    --gradient-gold: linear-gradient(135deg, hsl(45 93% 58%), hsl(35 100% 55%));
+    
+    --glow-cyan: 0 0 30px hsl(189 94% 43% / 0.4);
+    --glow-blue: 0 0 30px hsl(217 91% 60% / 0.4);
+    --glow-purple: 0 0 30px hsl(271 76% 53% / 0.4);
+    --glow-pink: 0 0 30px hsl(316 70% 58% / 0.4);
+    --glow-gold: 0 0 30px hsl(45 93% 58% / 0.5);
 
     --sidebar-background: 0 0% 98%;
 
@@ -98,52 +104,95 @@ All colors MUST be HSL.
 
 @layer utilities {
   .glow-cyan {
-    box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.5);
+    box-shadow: 0 0 30px hsl(var(--neon-cyan) / 0.4), 0 0 60px hsl(var(--neon-cyan) / 0.2);
   }
   
   .glow-blue {
-    box-shadow: 0 0 20px hsl(var(--neon-blue) / 0.5);
+    box-shadow: 0 0 30px hsl(var(--neon-blue) / 0.4), 0 0 60px hsl(var(--neon-blue) / 0.2);
   }
   
   .glow-purple {
-    box-shadow: 0 0 20px hsl(var(--neon-purple) / 0.5);
+    box-shadow: 0 0 30px hsl(var(--neon-purple) / 0.4), 0 0 60px hsl(var(--neon-purple) / 0.2);
   }
   
   .glow-pink {
-    box-shadow: 0 0 20px hsl(var(--neon-pink) / 0.5);
+    box-shadow: 0 0 30px hsl(var(--neon-pink) / 0.4), 0 0 60px hsl(var(--neon-pink) / 0.2);
+  }
+  
+  .glow-gold {
+    box-shadow: 0 0 30px hsl(var(--gold) / 0.5), 0 0 60px hsl(var(--gold) / 0.3);
   }
   
   .text-glow {
-    text-shadow: 0 0 10px currentColor;
+    text-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
   }
   
   .glass-morphism {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+  }
+  
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   
   .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
   }
   
   .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
+    animation: pulse-glow 3s ease-in-out infinite;
   }
 
   .animate-fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
     opacity: 0;
   }
 
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
     }
   }
 
@@ -162,16 +211,40 @@ All colors MUST be HSL.
   }
   
   @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    0%, 100% { 
+      transform: translateY(0) scale(1);
+    }
+    50% { 
+      transform: translateY(-20px) scale(1.05);
+    }
   }
   
   @keyframes pulse-glow {
     0%, 100% { 
-      box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.5);
+      box-shadow: 0 0 30px hsl(var(--primary) / 0.4), 0 0 60px hsl(var(--primary) / 0.2);
     }
     50% { 
-      box-shadow: 0 0 40px hsl(var(--neon-cyan) / 0.8);
+      box-shadow: 0 0 50px hsl(var(--primary) / 0.6), 0 0 100px hsl(var(--primary) / 0.3);
     }
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 3s linear infinite;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%
+    );
+    background-size: 1000px 100%;
   }
 }
