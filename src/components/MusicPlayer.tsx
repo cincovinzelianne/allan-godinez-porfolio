@@ -53,8 +53,7 @@ const MusicPlayer = () => {
         loop
         preload="auto"
       >
-        {/* TODO: Add your audio file path here */}
-        {/* <source src="/path-to-your-audio.mp3" type="audio/mpeg" /> */}
+        <source src="/background-music.mp3" type="audio/mpeg" />
       </audio>
 
       {/* Floating Music Player */}
