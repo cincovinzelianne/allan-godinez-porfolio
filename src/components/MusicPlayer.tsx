@@ -13,6 +13,7 @@ const MusicPlayer = () => {
     const playAudio = async () => {
       if (audioRef.current) {
         try {
+          audioRef.current.volume = 0.5; // Set moderate volume
           await audioRef.current.play();
           setIsPlaying(true);
         } catch (error) {
@@ -22,9 +23,17 @@ const MusicPlayer = () => {
       }
     };
 
-    // Small delay to ensure component is mounted
-    const timer = setTimeout(playAudio, 1000);
-    return () => clearTimeout(timer);
+    // Immediate play attempt
+    playAudio();
+    
+    // Also add click listener to document to start on first interaction if blocked
+    const startOnInteraction = () => {
+      playAudio();
+      document.removeEventListener('click', startOnInteraction);
+    };
+    document.addEventListener('click', startOnInteraction);
+
+    return () => document.removeEventListener('click', startOnInteraction);
   }, []);
 
   const togglePlay = () => {
@@ -52,6 +61,7 @@ const MusicPlayer = () => {
         ref={audioRef}
         loop
         preload="auto"
+        autoPlay
       >
         <source src="/background-music.mp3" type="audio/mpeg" />
       </audio>
